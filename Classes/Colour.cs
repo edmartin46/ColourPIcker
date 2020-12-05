@@ -7,7 +7,10 @@ namespace Prodigi.Classes
 {
     public class Colour
     {
-        string Name { get; set; }
-        int R 
+        public string Key { get; set; }
+        public byte Red { get; set; }
+        public byte Green { get; set; }
+        public byte Blue { get; set; }
+        public int Count { get; set; }
     }
 }

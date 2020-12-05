@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Prodigi.BusinessLogic;
 
 namespace Prodigi
 {
@@ -25,6 +26,10 @@ namespace Prodigi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IScanLogic, ScanLogic>();
+            services.AddTransient<IImageScanner, ImageScanner>();
+            services.AddTransient<IUrlChecker, UrlChecker>();
+            services.AddSingleton<IColourMatcher, ColourMatcher>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
